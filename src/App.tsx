@@ -1,18 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import DebouncedSearch from './patterns/DebouncedSearch';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <div className='mx-auto'>
-        <h1 className='text-3xl font-bold underline'>
-          Hello world!
-        </h1>
+      <div className="container bg-white mx-auto rounded p-8">
+        <h1 className="text-3xl mb-8">Jenny's UI Interactions Playground</h1>
+        <div className="flex">
+          <DebouncedSearch />
+        </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
