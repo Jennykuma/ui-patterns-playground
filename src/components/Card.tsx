@@ -10,7 +10,7 @@ const Card = ({ patternName, description, children }: CardProps) => {
   return (
     <div className="w-1/3 p-8 rounded-xl shadow-xl text-left">
       <h2 className="text-lg font-medium">{patternName}</h2>
-      <p>{description}</p>
+      <p className="text-sm mb-4 text-gray-5w00">{description}</p>
       <div>{children}</div>
     </div>
   );
