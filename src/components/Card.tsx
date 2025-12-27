@@ -18,7 +18,7 @@ const Card = ({ patternName, description, children }: CardProps) => {
         {patternName}
       </h2>
       {description && (
-        <p className="text-sm mb-4 text-gray-5w00">{description}</p>
+        <p className="text-sm mb-4 text-gray-500">{description}</p>
       )}
       <div>{children}</div>
     </section>

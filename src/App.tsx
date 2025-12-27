@@ -1,6 +1,7 @@
 import DebouncedSearch from './patterns/DebouncedSearch';
 import './App.css';
 import ClickOutsideDropdown from './patterns/ClickOutsideDropdown';
+import KeyboardToggle from './patterns/KeyboardToggle';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
         <div className="flex gap-4">
           <DebouncedSearch />
           <ClickOutsideDropdown />
+          <KeyboardToggle />
         </div>
       </div>
     </>

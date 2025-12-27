@@ -6,6 +6,9 @@ const DebouncedSearch = () => {
   const [showSearching, setShowSearching] = useState(false);
 
   useEffect(() => {
+    setShowSearching(false);
+    if (!searchValue) return;
+
     const timer = setTimeout(() => {
       setShowSearching(true);
     }, 300);

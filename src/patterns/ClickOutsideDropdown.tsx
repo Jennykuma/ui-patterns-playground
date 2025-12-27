@@ -63,7 +63,7 @@ const ClickOutsideDropdown = () => {
   return (
     <Card
       patternName="Click-Outside Dropdown"
-      description="A dropdown that dismisses on outside clicks and Escape, using refs and document event listeners."
+      description="A dropdown that dismisses on outside clicks and Escape, using refs and document event listeners"
     >
       {content}
     </Card>
