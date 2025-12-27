@@ -20,9 +20,9 @@ const DebouncedSearch = () => {
     <>
       <div
         className="
-        flex rounded-full bg-gray-200 px-4 py-3 mx-auto overflow-hidden
-        border-2 border-transparent
-        focus-within:border-blue-400"
+          flex rounded-full h-12 bg-gray-200 px-4 py-3 mx-auto overflow-hidden
+          border-2 border-transparent
+          focus-within:border-blue-400"
       >
         <input
           className="w-full outline-none text-sm pr-6"
@@ -35,7 +35,7 @@ const DebouncedSearch = () => {
           <button
             type="button"
             aria-label="Clear search"
-            className="cursor-pointer align-baseline"
+            className="cursor-pointer self-center"
             onClick={() => setSearchValue('')}
             onMouseDown={(e) => e.preventDefault()}
           >
