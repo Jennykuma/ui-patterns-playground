@@ -25,7 +25,7 @@ const KeyboardToggle = () => {
         <div
           className="relative bg-neutral-300 w-8 h-4
           rounded-full mr-2 mt-0.5 peer
-          peer-focus-visible:outline-none peer-focus-visible:ring-4 peer-focus-visible:ring-pink-100
+          peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-pink-100
           peer-checked:bg-pink-200 peer-checked:after:translate-x-full
           after:content-[''] after:absolute
           after:border-0 after:bg-white

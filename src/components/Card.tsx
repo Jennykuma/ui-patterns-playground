@@ -11,7 +11,7 @@ const Card = ({ patternName, description, children }: CardProps) => {
 
   return (
     <section
-      className="w-1/3 p-8 rounded-xl shadow-md text-left"
+      className="w-full p-8 rounded-xl shadow-md text-left"
       aria-labelledby={headingId}
     >
       <h2 id={headingId} className="text-lg font-medium">
