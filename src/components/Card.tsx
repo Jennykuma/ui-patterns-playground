@@ -7,12 +7,21 @@ interface CardProps {
 }
 
 const Card = ({ patternName, description, children }: CardProps) => {
+  const headingId = patternName.replace(/\s+/g, '-').toLowerCase();
+
   return (
-    <div className="w-1/3 p-8 rounded-xl shadow-md text-left">
-      <h2 className="text-lg font-medium">{patternName}</h2>
-      <p className="text-sm mb-4 text-gray-5w00">{description}</p>
+    <section
+      className="w-1/3 p-8 rounded-xl shadow-md text-left"
+      aria-labelledby={headingId}
+    >
+      <h2 id={headingId} className="text-lg font-medium">
+        {patternName}
+      </h2>
+      {description && (
+        <p className="text-sm mb-4 text-gray-5w00">{description}</p>
+      )}
       <div>{children}</div>
-    </div>
+    </section>
   );
 };
 

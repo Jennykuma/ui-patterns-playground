@@ -26,6 +26,7 @@ const DebouncedSearch = () => {
       >
         <input
           className="w-full outline-none text-sm pr-6"
+          aria-label="Search bar"
           type="text"
           placeholder="Search something..."
           value={searchValue}
