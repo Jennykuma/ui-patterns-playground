@@ -3,30 +3,17 @@ import Card from '../components/Card';
 
 const Modal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const modalRef = useRef<HTMLDivElement | null>(null);
-  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const backdropRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!isOpen) return;
 
-    document.addEventListener('click', handleClick);
     document.addEventListener('keydown', handleKeydown);
 
     return () => {
-      document.removeEventListener('click', handleClick);
       document.removeEventListener('keydown', handleKeydown);
     };
   }, [isOpen]);
-
-  const handleClick = (e: MouseEvent) => {
-    const target = e.target as Node;
-
-    if (triggerRef.current && triggerRef.current.contains(target)) return;
-
-    if (modalRef.current && !modalRef.current?.contains(target)) {
-      setIsOpen(false);
-    }
-  };
 
   const handleKeydown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
@@ -41,16 +28,27 @@ const Modal = () => {
   const content = (
     <>
       <button
-        ref={triggerRef}
         className="bg-sage-green p-1.5 rounded-md text-sm text-white cursor-pointer"
         onClick={openModal}
       >
         Open modal
       </button>
       {isOpen && (
-        <div className="fixed inset-0 flex flex-col justify-center items-center bg-gray-600/50">
-          <div ref={modalRef} className="rounded-lg p-8 w-1/3 bg-white">
-            <span className="text-2xl">Modal title</span>
+        <div
+          ref={backdropRef}
+          className="fixed inset-0 flex flex-col justify-center items-center bg-gray-600/50"
+          onClick={() => setIsOpen(false)}
+        >
+          <div
+            className="rounded-lg p-8 w-1/3 bg-white"
+            role="dialog"
+            onClick={(e) => e.stopPropagation()}
+            aria-modal="true"
+            aria-labelledby="modal-title"
+          >
+            <span id="modal-title" className="text-2xl">
+              Modal title
+            </span>
             <p className="mt-5">This is the modal description!</p>
             <div className="flex float-right">
               <button
