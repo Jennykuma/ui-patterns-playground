@@ -34,7 +34,7 @@ const ClickOutsideDropdown = () => {
   const content = (
     <div ref={containerRef}>
       <button
-        className="dropdown-btn bg-sage-green p-1.5 rounded-md text-sm text-white"
+        className="dropdown-btn bg-sage-green p-1.5 rounded-md text-sm text-white cursor-pointer"
         aria-expanded={showDropdown}
         onClick={() => setShowDropdown(true)}
       >
@@ -46,7 +46,7 @@ const ClickOutsideDropdown = () => {
             {[1, 2, 3].map((num: number) => {
               return (
                 <li
-                  className="hover:bg-gray-100 text-sm"
+                  className="hover:bg-gray-100 text-sm cursor-pointer"
                   role="menuitem"
                   onClick={() => alert(`You have clicked item ${num}!`)}
                 >

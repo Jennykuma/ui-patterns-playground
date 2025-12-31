@@ -9,7 +9,7 @@ const App = () => {
     <>
       <div className="container bg-white mx-auto rounded-4xl p-8">
         <h2 className="text-3xl mb-8">Jenny's UI Patterns Playground</h2>
-        <div className="grid grid-cols-2 grid-rows-2 gap-4">
+        <div className="grid grid-cols-2 grid-rows-2 gap-6">
           <DebouncedSearch />
           <ClickOutsideDropdown />
           <KeyboardToggle />
