@@ -51,7 +51,9 @@ const Tabs = () => {
 							w-20 h-10 cursor-pointer
 							text-gray-900 text-sm
 							${activeTab === index ? 'bg-pale-pink' : 'bg-sage-green hover:bg-sage-green/80'}`}
-						ref={(el) => (tabsRef.current[index] = el)}
+						ref={(el) => {
+							tabsRef.current[index] = el;
+						}}
 						onClick={() => setActiveTab(index)}
 						onKeyDown={(e) => onTabKeyDown(e, index)}
 					>
