@@ -35,13 +35,18 @@ const ClickOutsideDropdown = () => {
 		<div ref={containerRef}>
 			<button
 				className="dropdown-btn bg-sage-green p-1.5 rounded-md text-sm text-white cursor-pointer"
+				aria-controls="dropdown"
 				aria-expanded={showDropdown}
 				onClick={() => setShowDropdown(true)}
 			>
 				Click me!
 			</button>
 			{showDropdown && (
-				<div className="dropdown border border-gray-200 mt-1 p-1">
+				<div
+					id="dropdown"
+					role="menu"
+					className="dropdown border border-gray-200 mt-1 p-1"
+				>
 					<ul>
 						{[1, 2, 3].map((num: number) => {
 							return (
