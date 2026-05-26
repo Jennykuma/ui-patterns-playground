@@ -4,6 +4,7 @@ import Card from '../components/Card';
 const Modal = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const backdropRef = useRef<HTMLDivElement | null>(null);
+	const previousFocus = useRef<HTMLElement | null>(null);
 
 	useEffect(() => {
 		if (!isOpen) return;
@@ -17,12 +18,20 @@ const Modal = () => {
 
 	const handleKeydown = (e: KeyboardEvent) => {
 		if (e.key === 'Escape') {
-			setIsOpen(false);
+			closeModal();
 		}
 	};
 
 	const openModal = () => {
+		previousFocus.current = document.activeElement as HTMLElement | null;
 		setIsOpen(true);
+	};
+
+	const closeModal = () => {
+		setIsOpen(false);
+		if (previousFocus.current) {
+			previousFocus.current.focus();
+		}
 	};
 
 	const content = (
@@ -37,7 +46,7 @@ const Modal = () => {
 				<div
 					ref={backdropRef}
 					className="fixed inset-0 flex flex-col justify-center items-center bg-gray-600/50"
-					onClick={() => setIsOpen(false)}
+					onClick={closeModal}
 				>
 					<div
 						className="rounded-lg p-8 w-1/3 bg-white"
@@ -53,7 +62,7 @@ const Modal = () => {
 						<div className="flex float-right">
 							<button
 								className="bg-gray-200 mt-4 p-2 rounded-md text-sm cursor-pointer"
-								onClick={() => setIsOpen(!isOpen)}
+								onClick={closeModal}
 							>
 								Close
 							</button>
