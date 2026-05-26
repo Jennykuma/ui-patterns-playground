@@ -15,7 +15,7 @@ const KeyboardToggle = () => {
 		<>
 			<label className="inline-flex cursor-pointer">
 				<input
-					id="keyboard-toggle"
+					id="keyboard-toggle-input"
 					aria-checked={isOn}
 					aria-labelledby="keyboard-toggle-label"
 					className="sr-only peer"

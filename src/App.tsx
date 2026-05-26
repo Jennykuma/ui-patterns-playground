@@ -3,6 +3,7 @@ import './App.css';
 import ClickOutsideDropdown from './patterns/ClickOutsideDropdown';
 import KeyboardToggle from './patterns/KeyboardToggle';
 import Modal from './patterns/Modal';
+import Tabs from './patterns/Tabs';
 
 const App = () => {
 	return (
@@ -16,6 +17,7 @@ const App = () => {
 					<ClickOutsideDropdown />
 					<KeyboardToggle />
 					<Modal />
+					<Tabs />
 				</div>
 			</div>
 		</>
