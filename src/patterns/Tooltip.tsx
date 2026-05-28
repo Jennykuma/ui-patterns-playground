@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Card from '../components/Card';
 
-const Tooltips = () => {
+const Tooltip = () => {
 	const [showTooltip, setShowTooltip] = useState(false);
 
 	const handleHideTooltip = () => {
@@ -46,7 +46,7 @@ const Tooltips = () => {
 
 	return (
 		<Card
-			patternName="Tooltips"
+			patternName="Tooltip"
 			description="A tooltip is a small pop-up box that appears when a user hovers over an element, focuses on it, or touches it"
 		>
 			{content}
@@ -54,4 +54,4 @@ const Tooltips = () => {
 	);
 };
 
-export default Tooltips;
+export default Tooltip;

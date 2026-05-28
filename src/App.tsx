@@ -3,7 +3,7 @@ import ClickOutsideDropdown from './patterns/ClickOutsideDropdown';
 import KeyboardToggle from './patterns/KeyboardToggle';
 import Modal from './patterns/Modal';
 import Tabs from './patterns/Tabs';
-import Tooltips from './patterns/Tooltips';
+import Tooltip from './patterns/Tooltip';
 import './App.css';
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
 					<KeyboardToggle />
 					<Modal />
 					<Tabs />
-					<Tooltips />
+					<Tooltip />
 				</div>
 			</div>
 		</>
