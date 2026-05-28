@@ -49,7 +49,7 @@ const Tabs = () => {
 						id={`tab-${index}`}
 						className={`
 							w-20 h-10 cursor-pointer
-							text-gray-900 text-sm
+							text-white text-sm
 							${activeTab === index ? 'bg-pale-pink' : 'bg-sage-green hover:bg-sage-green/80'}`}
 						ref={(el) => {
 							tabsRef.current[index] = el;
