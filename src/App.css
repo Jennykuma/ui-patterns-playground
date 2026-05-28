@@ -40,3 +40,15 @@
 .read-the-docs {
 	color: #888;
 }
+
+.caret-up {
+	border-top: 0.4em solid #000;
+	border-left: 0.4em solid transparent;
+	border-right: 0.4em solid transparent;
+	height: 0;
+	width: 0;
+	margin-left: 0.5em;
+	rotate: 180deg;
+	position: relative;
+	bottom: 42px;
+}
