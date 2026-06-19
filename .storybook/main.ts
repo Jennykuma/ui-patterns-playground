@@ -12,9 +12,7 @@ const config: StorybookConfig = {
 	],
 	framework: '@storybook/react-vite',
 	docs: {
-		//👇 See the table below for the list of supported options
 		defaultName: 'Documentation',
-		docsMode: true,
 	},
 };
 export default config;
