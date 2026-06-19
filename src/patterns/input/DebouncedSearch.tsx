@@ -1,7 +1,19 @@
 import { useEffect, useState } from 'react';
-import Card from '../components/Card';
 
-const DebouncedSearch = () => {
+export interface DebouncedSearchProps {
+	/** Debounce duration in ms */
+	delay?: number;
+	/** String displayed in the search bar */
+	placeholder?: string;
+	/** Search handler */
+	onSearch?: (value: string) => void;
+}
+
+/** Search input with debounced updates and inline clear action */
+const DebouncedSearch = ({
+	delay = 300,
+	placeholder = 'Search something...',
+}: DebouncedSearchProps) => {
 	const [searchValue, setSearchValue] = useState('');
 	const [showSearching, setShowSearching] = useState(false);
 
@@ -11,7 +23,7 @@ const DebouncedSearch = () => {
 
 		const timer = setTimeout(() => {
 			setShowSearching(true);
-		}, 300);
+		}, delay);
 
 		return () => {
 			clearTimeout(timer);
@@ -19,11 +31,11 @@ const DebouncedSearch = () => {
 		};
 	}, [searchValue]);
 
-	const content = (
+	return (
 		<>
 			<div
 				className="
-          flex rounded-full h-12 bg-gray-200 px-4 py-3 mx-auto overflow-hidden
+          w-md flex rounded-full h-12 bg-gray-200 px-4 py-3 mx-auto overflow-hidden
           border-2 border-transparent
           focus-within:border-blue-400"
 			>
@@ -31,7 +43,7 @@ const DebouncedSearch = () => {
 					className="w-full outline-none text-sm pr-6"
 					aria-label="Search bar"
 					type="text"
-					placeholder="Search something..."
+					placeholder={placeholder}
 					value={searchValue}
 					onChange={(event) => setSearchValue(event?.target.value)}
 				/>
@@ -53,15 +65,6 @@ const DebouncedSearch = () => {
 				)}
 			</div>
 		</>
-	);
-
-	return (
-		<Card
-			patternName="Debounced Search"
-			description="Search input with debounced updates and inline clear action"
-		>
-			{content}
-		</Card>
 	);
 };
 

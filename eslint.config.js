@@ -1,3 +1,5 @@
+import storybook from 'eslint-plugin-storybook';
+
 import js from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
@@ -10,9 +12,7 @@ import prettier from 'eslint-plugin-prettier';
 export default [
 	// Ignore built output
 	{ ignores: ['dist/**'] },
-
 	js.configs.recommended,
-
 	{
 		files: ['**/*.{js,jsx}'],
 		languageOptions: {
@@ -68,8 +68,7 @@ export default [
 			'jsx-a11y/click-events-have-key-events': 'warn',
 			'jsx-a11y/no-static-element-interactions': 'warn',
 		},
-	},
-
-	// Optional: disables ESLint formatting rules that fight Prettier
+	}, // Optional: disables ESLint formatting rules that fight Prettier
 	prettierConfig,
+	...storybook.configs['flat/recommended'],
 ];

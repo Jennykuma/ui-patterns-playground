@@ -1,7 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
-import Card from '../components/Card';
 
-const Modal = () => {
+export interface ModalProps {
+	/** Heading displayed at the top of the modal */
+	title?: string;
+	/** Body text inside the modal */
+	description?: string;
+}
+
+/** Modal dialog that closes on Escape or backdrop click, with focus restoration on close */
+const Modal = ({
+	title = 'Modal title',
+	description = 'This is the modal description!',
+}: ModalProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const backdropRef = useRef<HTMLDivElement | null>(null);
 	const previousFocus = useRef<HTMLElement | null>(null);
@@ -34,7 +44,7 @@ const Modal = () => {
 		}
 	};
 
-	const content = (
+	return (
 		<>
 			<button
 				className="bg-sage-green p-1.5 rounded-md text-sm text-white cursor-pointer"
@@ -56,9 +66,9 @@ const Modal = () => {
 						aria-labelledby="modal-title"
 					>
 						<span id="modal-title" className="text-2xl">
-							Modal title
+							{title}
 						</span>
-						<p className="mt-5">This is the modal description!</p>
+						<p className="mt-5">{description}</p>
 						<div className="flex float-right">
 							<button
 								className="bg-gray-200 mt-4 p-2 rounded-md text-sm cursor-pointer"
@@ -71,15 +81,6 @@ const Modal = () => {
 				</div>
 			)}
 		</>
-	);
-
-	return (
-		<Card
-			patternName="Modal"
-			description="A modal dialog that opens from a button and closes on Escape or click outside, exploring event handling and basic focus management"
-		>
-			{content}
-		</Card>
 	);
 };
 

@@ -1,8 +1,13 @@
 import { useState, useRef } from 'react';
-import Card from '../components/Card';
 import { CircleCheck, CircleX } from 'lucide-react';
 
-const Toast = () => {
+export interface ToastProps {
+	/** How long the toast stays visible in ms */
+	duration?: number;
+}
+
+/** Temporary success and error notifications that slide in and auto-dismiss */
+const Toast = ({ duration = 3000 }: ToastProps) => {
 	const [showSuccessToast, setShowSuccessToast] = useState(false);
 	const [showErrorToast, setShowErrorToast] = useState(false);
 	const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -21,7 +26,7 @@ const Toast = () => {
 			} else {
 				setShowErrorToast(false);
 			}
-		}, 3000); // Hide toast after 3 seconds
+		}, duration);
 
 		return () => {
 			if (timeoutRef.current) {
@@ -101,14 +106,11 @@ const Toast = () => {
 	);
 
 	return (
-		<Card
-			patternName="Toast"
-			description="A toast is a temporary message that appears on the screen to provide feedback. They typically disappear after a short duration"
-		>
+		<>
 			{content}
 			{successToast}
 			{errorToast}
-		</Card>
+		</>
 	);
 };
 

@@ -1,9 +1,18 @@
 import { useState, useRef } from 'react';
-import Card from '../components/Card';
 
-const Tabs = () => {
-	const tabs = ['Tab 1', 'Tab 2', 'Tab 3'];
-	const [activeTab, setActiveTab] = useState(0);
+export interface TabsProps {
+	/** Tab labels */
+	tabs?: string[];
+	/** Index of the initially active tab */
+	defaultTab?: number;
+}
+
+/** Keyboard-accessible tabs with arrow key navigation and ARIA roles */
+const Tabs = ({
+	tabs = ['Tab 1', 'Tab 2', 'Tab 3'],
+	defaultTab = 0,
+}: TabsProps) => {
+	const [activeTab, setActiveTab] = useState(defaultTab);
 	const tabsRef = useRef<Array<HTMLButtonElement | null>>([]);
 
 	const activateTab = (nextIndex: number) => {
@@ -32,7 +41,7 @@ const Tabs = () => {
 		}
 	};
 
-	const content = (
+	return (
 		<>
 			<div
 				className="tab flex gap-0.5"
@@ -75,15 +84,6 @@ const Tabs = () => {
 				))}
 			</div>
 		</>
-	);
-
-	return (
-		<Card
-			patternName="Tabs"
-			description="A keyboard-accessible tab interface that allows users to navigate between tabs using arrow keys, Home/End keys, and provides appropriate ARIA roles and attributes for screen readers"
-		>
-			{content}
-		</Card>
 	);
 };
 

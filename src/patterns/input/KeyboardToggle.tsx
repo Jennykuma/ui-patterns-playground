@@ -1,28 +1,37 @@
 import { useState } from 'react';
-import Card from '../components/Card';
 
-const KeyboardToggle = () => {
-	const [isOn, setIsOn] = useState(false);
+export interface KeyboardToggleProps {
+	label?: string;
+	defaultChecked?: boolean;
+	onChange?: (value: boolean) => void;
+}
+
+/** A keyboard-accessible toggle switch that supports mouse and Enter/Space interactions, demonstrating accessible state control */
+const KeyboardToggle = ({
+	label = 'Keyboard Toggle',
+	defaultChecked = false,
+}: KeyboardToggleProps) => {
+	const [isChecked, setIsChecked] = useState(defaultChecked);
 
 	const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === 'Enter') {
 			e.preventDefault();
-			setIsOn((value) => !value);
+			setIsChecked((value) => !value);
 		}
 	};
 
-	const content = (
+	return (
 		<>
 			<label className="inline-flex cursor-pointer">
 				<input
 					id="keyboard-toggle-input"
-					aria-checked={isOn}
+					aria-checked={isChecked}
 					aria-labelledby="keyboard-toggle-label"
 					className="sr-only peer"
 					type="checkbox"
 					role="switch"
-					checked={isOn}
-					onChange={(e) => setIsOn(e.currentTarget.checked)}
+					checked={isChecked}
+					onChange={(e) => setIsChecked(e.currentTarget.checked)}
 					onKeyDown={handleKeydown}
 				/>
 				<div
@@ -38,19 +47,10 @@ const KeyboardToggle = () => {
 						after:rounded-full after:h-4 after:w-4 after:transition-all"
 				/>
 				<span id="keyboard-toggle-label" className="text-sm">
-					Keyboard toggle
+					{label}
 				</span>
 			</label>
 		</>
-	);
-
-	return (
-		<Card
-			patternName="Keyboard Toggle"
-			description="A keyboard-accessible toggle switch that supports mouse and Enter/Space interactions, demonstrating accessible state control"
-		>
-			{content}
-		</Card>
 	);
 };
 

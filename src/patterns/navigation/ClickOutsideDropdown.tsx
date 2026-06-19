@@ -1,7 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
-import Card from '../components/Card';
 
-const ClickOutsideDropdown = () => {
+export interface ClickOutsideDropdownProps {
+	/** Menu items displayed in the dropdown */
+	items?: string[];
+}
+
+/** Dropdown that closes on outside click or Escape, using refs and document event listeners */
+const ClickOutsideDropdown = ({
+	items = ['Item 1', 'Item 2', 'Item 3'],
+}: ClickOutsideDropdownProps) => {
 	const [showDropdown, setShowDropdown] = useState(false);
 	const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -31,7 +38,7 @@ const ClickOutsideDropdown = () => {
 		}
 	};
 
-	const content = (
+	return (
 		<div ref={containerRef}>
 			<button
 				className="dropdown-btn bg-sage-green p-1.5 rounded-md text-sm text-white cursor-pointer"
@@ -48,32 +55,22 @@ const ClickOutsideDropdown = () => {
 					className="dropdown border border-gray-200 mt-1 p-1"
 				>
 					<ul>
-						{[1, 2, 3].map((num: number) => {
-							return (
-								<li
-									className="hover:bg-gray-100 text-sm cursor-pointer"
-									role="menuitem"
-									onClick={() =>
-										alert(`You have clicked item ${num}!`)
-									}
-								>
-									item {num}
-								</li>
-							);
-						})}
+						{items.map((item) => (
+							<li
+								key={item}
+								className="hover:bg-gray-100 text-sm cursor-pointer"
+								role="menuitem"
+								onClick={() =>
+									alert(`You have clicked ${item}!`)
+								}
+							>
+								{item}
+							</li>
+						))}
 					</ul>
 				</div>
 			)}
 		</div>
-	);
-
-	return (
-		<Card
-			patternName="Click-Outside Dropdown"
-			description="A dropdown that dismisses on outside clicks and Escape, using refs and document event listeners"
-		>
-			{content}
-		</Card>
 	);
 };
 
