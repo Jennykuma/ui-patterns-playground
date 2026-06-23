@@ -19,3 +19,16 @@ export const Primary: Story = {
 		defaultChecked: true,
 	},
 };
+
+export const DisabledNotChecked: Story = {
+	args: {
+		disabled: true,
+	},
+};
+
+export const DisabledChecked: Story = {
+	args: {
+		defaultChecked: true,
+		disabled: true,
+	},
+};
