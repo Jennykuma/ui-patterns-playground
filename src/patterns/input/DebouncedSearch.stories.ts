@@ -17,5 +17,19 @@ export const Primary: Story = {
 	args: {
 		delay: 300,
 		placeholder: 'Search something...',
+		disabled: false,
+	},
+};
+
+export const Disabled: Story = {
+	args: {
+		disabled: true,
+	},
+};
+
+export const ReadOnly: Story = {
+	args: {
+		placeholder: 'Read-only input',
+		readOnly: true,
 	},
 };
