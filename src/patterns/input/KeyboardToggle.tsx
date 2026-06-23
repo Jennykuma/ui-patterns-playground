@@ -52,19 +52,20 @@ const KeyboardToggle = ({
 					onKeyDown={handleKeydown}
 				/>
 				<div
-					className={classNames(`
-						relative w-8 h-4
+					className={classNames(
+						`relative w-8 h-4
 						rounded-full mr-2 mt-0.5 peer
 						peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300
-						bg-neutral-${disabled && !isChecked ? '200' : '300'}
-						peer-checked:bg-${disabled ? 'blue-300' : 'blue-500'}
-						after:ring-${disabled ? 'gray-200' : 'gray-300'}
 						peer-checked:after:translate-x-full
 						after:content-[''] after:absolute
 						after:border-0 after:bg-white
 						after:top-[0.5] after:start-[0.5]
 						after:ring-1 after:ring-gray-200
-						after:rounded-full after:h-4 after:w-4 after:transition-all`)}
+						after:rounded-full after:h-4 after:w-4 after:transition-all`,
+						disabled && !isChecked ? 'bg-neutral-200' : 'bg-neutral-300',
+						disabled ? 'peer-checked:bg-blue-300' : 'peer-checked:bg-blue-500',
+						disabled ? 'after:ring-gray-200' : 'after:ring-gray-300',
+					)}
 				/>
 				<span id="keyboard-toggle-label" className="text-sm">
 					{label}
