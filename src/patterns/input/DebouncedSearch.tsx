@@ -4,7 +4,7 @@ import { LoaderCircle } from 'lucide-react';
 export interface DebouncedSearchProps {
 	/** Debounce duration in ms */
 	delay?: number;
-	/** String displayed in the search bar */
+	/** Placeholder text for the search input */
 	placeholder?: string;
 	/** Search is disabled */
 	disabled?: boolean;
