@@ -20,13 +20,13 @@ export const Primary: Story = {
 	},
 };
 
-export const DisabledNotChecked: Story = {
+export const DisabledOff: Story = {
 	args: {
 		disabled: true,
 	},
 };
 
-export const DisabledChecked: Story = {
+export const DisabledOn: Story = {
 	args: {
 		defaultChecked: true,
 		disabled: true,
