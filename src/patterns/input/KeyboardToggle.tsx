@@ -62,9 +62,13 @@ const KeyboardToggle = ({
 						after:top-[0.5] after:start-[0.5]
 						after:ring-1 after:ring-gray-200
 						after:rounded-full after:h-4 after:w-4 after:transition-all`,
-						disabled && !isChecked ? 'bg-neutral-200' : 'bg-neutral-300',
-						disabled ? 'peer-checked:bg-blue-300' : 'peer-checked:bg-blue-500',
-						disabled ? 'after:ring-gray-200' : 'after:ring-gray-300',
+						disabled && !isChecked
+							? 'bg-neutral-200'
+							: 'bg-neutral-300',
+						disabled
+							? 'peer-checked:bg-blue-300'
+							: 'peer-checked:bg-blue-500',
+						disabled ? 'after:ring-gray-200' : 'after:ring-gray-300'
 					)}
 				/>
 				<span id="keyboard-toggle-label" className="text-sm">
