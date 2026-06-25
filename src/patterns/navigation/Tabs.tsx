@@ -20,7 +20,7 @@ const Tabs = ({
 		setActiveTab(nextIndex);
 	};
 
-	const onTabKeyDown = (
+	const onKeyDown = (
 		e: React.KeyboardEvent<HTMLButtonElement>,
 		index: number
 	) => {
@@ -43,11 +43,7 @@ const Tabs = ({
 
 	return (
 		<>
-			<div
-				className="tab flex gap-0.5"
-				role="tablist"
-				aria-label="Sample Tabs"
-			>
+			<div className="tab flex" role="tablist" aria-label="Sample Tabs">
 				{tabs.map((tab, index) => (
 					<button
 						key={tab}
@@ -57,20 +53,28 @@ const Tabs = ({
 						tabIndex={activeTab === index ? 0 : -1}
 						id={`tab-${index}`}
 						className={`
-							w-20 h-10 cursor-pointer
-							text-white text-sm
-							${activeTab === index ? 'bg-pale-pink' : 'bg-sage-green hover:bg-sage-green/80'}`}
+							group w-15 h-10 cursor-pointer
+							text-gray-600 text-sm font-semibold
+							outline-none transition-colors duration-200
+							${activeTab === index ? 'border-b-2 border-b-blue-500' : 'border-b border-b-gray-200'}
+						`}
 						ref={(el) => {
 							tabsRef.current[index] = el;
 						}}
 						onClick={() => setActiveTab(index)}
-						onKeyDown={(e) => onTabKeyDown(e, index)}
+						onKeyDown={(e) => onKeyDown(e, index)}
 					>
-						Tab {index + 1}
+						<span className="rounded px-1 group-focus-visible:ring-2 group-focus-visible:ring-blue-200 group-focus-visible:ring-offset-2">
+							Tab {index + 1}
+						</span>
 					</button>
 				))}
 			</div>
-			<div className="tab-content border border-gray-300 rounded-md p-4">
+			<div
+				className="
+					tab-content border border-gray-100
+					p-4 w-100 h-50 rounded-xs m-auto mt-2"
+			>
 				{tabs.map((_, index) => (
 					<div
 						role="tabpanel"
