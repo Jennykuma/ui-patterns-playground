@@ -5,9 +5,22 @@ const meta = {
 	title: 'Overlay/Tooltip',
 	component: Tooltip,
 	parameters: {
-		layout: 'fullscreen',
-		docs: { story: { height: '150px' } },
+		layout: 'centered',
+		docs: { story: { height: '400px' } },
 	},
+	decorators: [
+		(Story) => (
+			<div
+				style={{
+					width: '200px',
+					display: 'flex',
+					justifyContent: 'center',
+				}}
+			>
+				<Story />
+			</div>
+		),
+	],
 	tags: ['autodocs'],
 } satisfies Meta<typeof Tooltip>;
 

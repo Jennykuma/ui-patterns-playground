@@ -47,7 +47,7 @@ const Modal = ({
 	return (
 		<>
 			<button
-				className="bg-sage-green p-1.5 rounded-md text-sm text-white cursor-pointer"
+				className="bg-blue-500 hover:bg-blue-400 transition-colors duration-200 p-1.5 rounded-md text-sm font-semibold text-white cursor-pointer"
 				onClick={openModal}
 			>
 				Open modal
@@ -71,7 +71,9 @@ const Modal = ({
 						<p className="mt-5">{description}</p>
 						<div className="flex float-right">
 							<button
-								className="bg-gray-200 mt-4 p-2 rounded-md text-sm cursor-pointer"
+								className="
+								 	border border-gray-200 hover:bg-gray-200 transition-colors duration-200
+									text-sm mt-4 px-2 py-1.5 rounded-md cursor-pointer"
 								onClick={closeModal}
 							>
 								Close

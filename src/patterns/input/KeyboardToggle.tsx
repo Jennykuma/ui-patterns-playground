@@ -54,7 +54,7 @@ const KeyboardToggle = ({
 				<div
 					className={classNames(
 						`relative w-8 h-4
-						rounded-full mr-2 mt-0.5 peer
+						rounded-full mr-2 mt-0.5 peer transition-colors duration-100
 						peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300
 						peer-checked:after:translate-x-full
 						after:content-[''] after:absolute

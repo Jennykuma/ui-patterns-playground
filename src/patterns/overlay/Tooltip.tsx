@@ -30,7 +30,9 @@ const Tooltip = ({
 		<div className="relative inline-block">
 			<button
 				aria-describedby="button-tooltip"
-				className="bg-sage-green p-1.5 rounded-md text-sm text-white cursor-pointer"
+				className="
+					bg-blue-500 hover:bg-blue-400 transition-colors duration-200
+					p-1.5 rounded-md text-sm text-white font-semibold cursor-pointer"
 				aria-label={label}
 				onMouseEnter={() => setShowTooltip(true)}
 				onMouseLeave={handleHideTooltip}
