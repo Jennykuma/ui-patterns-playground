@@ -6,7 +6,13 @@ const meta = {
 	component: Accordion,
 	parameters: {
 		layout: 'centered',
-		docs: { story: { height: '400px' } },
+		docs: {
+			story: { height: '400px' },
+			description: {
+				component:
+					'A vertically stacked set of collapsible sections, where only one section is expanded at a time. Each header is a button wrapped in a heading element, linked to its panel via `aria-controls`/`aria-labelledby`, and supports full keyboard navigation (Tab, Shift+Tab, Space/Enter).',
+			},
+		},
 	},
 	tags: ['autodocs'],
 } satisfies Meta<typeof Accordion>;
