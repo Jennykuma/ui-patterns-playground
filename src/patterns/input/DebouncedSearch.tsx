@@ -48,7 +48,7 @@ const DebouncedSearch = ({
 				className="
           w-md flex rounded-lg h-12 bg-gray-100 mx-auto overflow-hidden
           border border-gray-200 disabled:border-0
-					focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-blue-600"
+					focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-focus"
 			>
 				{loading && (
 					<LoaderCircle
@@ -71,8 +71,8 @@ const DebouncedSearch = ({
 						type="button"
 						aria-label="Clear search"
 						className="
-							mr-5 cursor-pointer self-center background-none rounded
-							outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+							mr-5 cursor-pointer self-center rounded
+							outline-none focus-visible:ring-2 focus-visible:ring-focus"
 						onClick={() => setSearchValue('')}
 						onMouseDown={(e) => e.preventDefault()}
 					>

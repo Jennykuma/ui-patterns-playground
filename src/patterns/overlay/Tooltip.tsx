@@ -31,7 +31,7 @@ const Tooltip = ({
 			<button
 				aria-describedby="button-tooltip"
 				className="
-					bg-blue-500 hover:bg-blue-400 transition-colors duration-200
+					bg-primary hover:bg-primary-hover transition-colors duration-200
 					p-1.5 rounded-md text-sm text-white font-semibold cursor-pointer"
 				aria-label={label}
 				onMouseEnter={() => setShowTooltip(true)}

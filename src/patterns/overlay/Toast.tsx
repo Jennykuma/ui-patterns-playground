@@ -44,17 +44,17 @@ const Toast = ({ duration = 3000 }: ToastProps) => {
 				${showSuccessToast ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}
 				flex items-center gap-4
 				h-24 w-80 bg-white p-4 text-sm text-gray-800
-				border border-green-200 rounded-xl shadow-lg
+				border border-sage-green rounded-xl shadow-lg
 				fixed top-4 right-4 z-50
 				transform transition-opacity duration-300 ease-out
 			`}
 		>
 			<CircleCheck
 				aria-hidden="true"
-				className="shrink-0 w-8 h-8 text-green-500"
+				className="shrink-0 w-8 h-8 text-primary"
 			/>
 			<div className="flex flex-col justify-center">
-				<span className="font-semibold text-green-500">Success</span>
+				<span className="font-semibold text-primary">Success</span>
 				<p className="text-xs text-gray-500">
 					This toast will disappear after 3 seconds. Enjoy the moment!
 				</p>
@@ -69,17 +69,17 @@ const Toast = ({ duration = 3000 }: ToastProps) => {
 				${showErrorToast ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}
 				flex items-center gap-4
 				h-24 w-80 bg-white p-4 text-sm text-gray-800
-				border border-red-200 rounded-xl shadow-lg
+				border border-danger rounded-xl shadow-lg
 				fixed top-4 right-4 z-50
 				transform transition-opacity duration-300 ease-out
 			`}
 		>
 			<CircleX
 				aria-hidden="true"
-				className="shrink-0 w-8 h-8 text-red-500"
+				className="shrink-0 w-8 h-8 text-danger"
 			/>
 			<div className="flex flex-col justify-center">
-				<span className="font-semibold text-red-500">Error</span>
+				<span className="font-semibold text-danger">Error</span>
 				<p className="text-xs text-gray-500">
 					API request failed. Please try again later. Contact support
 					if the issue persists.
@@ -91,13 +91,13 @@ const Toast = ({ duration = 3000 }: ToastProps) => {
 	const content = (
 		<div className="flex gap-2">
 			<button
-				className="bg-blue-500 hover:bg-blue-400 transition-colors duration-200 p-1.5 rounded-md text-sm font-semibold text-white cursor-pointer"
+				className="bg-primary hover:bg-primary-hover transition-colors duration-200 p-1.5 rounded-md text-sm font-semibold text-white cursor-pointer"
 				onClick={() => handleSubmit('success')}
 			>
 				Submit
 			</button>
 			<button
-				className="bg-red-500 hover:bg-red-600 transition-colors duration-200 p-1.5 rounded-md text-sm font-semibold text-white cursor-pointer"
+				className="bg-danger hover:bg-danger-hover transition-colors duration-200 p-1.5 rounded-md text-sm font-semibold text-white cursor-pointer"
 				onClick={() => handleSubmit('error')}
 			>
 				Submit with error

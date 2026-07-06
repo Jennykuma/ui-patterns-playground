@@ -39,7 +39,7 @@ const Accordion = ({
 									aria-expanded={index === activeSection}
 									className={classNames(
 										'header w-100 p-4 font-semibold cursor-pointer',
-										'flex justify-between',
+										'flex justify-between text-primary',
 										'border-x-2 border-x-gray-400',
 										index !== lastSection &&
 											'border-b border-b-gray-200',
@@ -54,7 +54,7 @@ const Accordion = ({
 									{section}
 									<ChevronDown
 										className={classNames(
-											'transition duration-300',
+											'stroke-primary transition duration-300',
 											isOpen && 'rotate-180'
 										)}
 									/>

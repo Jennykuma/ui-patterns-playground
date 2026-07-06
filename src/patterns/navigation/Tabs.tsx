@@ -56,7 +56,7 @@ const Tabs = ({
 							group w-15 h-10 cursor-pointer
 							text-gray-600 text-sm font-semibold
 							outline-none transition-colors duration-200
-							${activeTab === index ? 'border-b-2 border-b-blue-500' : 'border-b border-b-gray-200'}
+							${activeTab === index ? 'border-b-2 border-b-primary' : 'border-b border-b-gray-200'}
 						`}
 						ref={(el) => {
 							tabsRef.current[index] = el;
@@ -64,7 +64,7 @@ const Tabs = ({
 						onClick={() => setActiveTab(index)}
 						onKeyDown={(e) => onKeyDown(e, index)}
 					>
-						<span className="rounded px-1 group-focus-visible:ring-2 group-focus-visible:ring-blue-200 group-focus-visible:ring-offset-2">
+						<span className="rounded px-1 group-focus-visible:ring-2 group-focus-visible:ring-primary/25 group-focus-visible:ring-offset-2">
 							Tab {index + 1}
 						</span>
 					</button>

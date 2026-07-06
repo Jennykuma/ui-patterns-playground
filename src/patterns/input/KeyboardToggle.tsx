@@ -55,7 +55,7 @@ const KeyboardToggle = ({
 					className={classNames(
 						`relative w-8 h-4
 						rounded-full mr-2 mt-0.5 peer transition-colors duration-100
-						peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300
+						peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/50
 						peer-checked:after:translate-x-full
 						after:content-[''] after:absolute
 						after:border-0 after:bg-white
@@ -66,8 +66,8 @@ const KeyboardToggle = ({
 							? 'bg-neutral-200'
 							: 'bg-neutral-300',
 						disabled
-							? 'peer-checked:bg-blue-300'
-							: 'peer-checked:bg-blue-500',
+							? 'peer-checked:bg-primary/60'
+							: 'peer-checked:bg-primary',
 						disabled ? 'after:ring-gray-200' : 'after:ring-gray-300'
 					)}
 				/>
