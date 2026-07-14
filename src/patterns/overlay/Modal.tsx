@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useId } from 'react';
 import { createPortal } from 'react-dom';
 
 export interface ModalProps {
@@ -17,15 +17,24 @@ const Modal = ({
   const backdropRef = useRef<HTMLDivElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
+  const previousOverflow = useRef<string>('');
+  const titleId = useId();
 
   useEffect(() => {
     if (!isOpen) return;
+
+    // Record the previous overflow setting so we can revert back to it when the modal closes
+    previousOverflow.current = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    // Focus on the dialog when the modal is opened
     dialogRef.current?.focus();
 
     document.addEventListener('keydown', handleKeydown);
 
     return () => {
       document.removeEventListener('keydown', handleKeydown);
+      document.body.style.overflow = previousOverflow.current;
     };
   }, [isOpen]);
 
@@ -88,9 +97,9 @@ const Modal = ({
               role="dialog"
               onClick={(e) => e.stopPropagation()}
               aria-modal="true"
-              aria-labelledby="modal-title"
+              aria-labelledby={titleId}
             >
-              <span id="modal-title" className="text-2xl">
+              <span id={titleId} className="text-2xl">
                 {title}
               </span>
               <p className="mt-5">{description}</p>
