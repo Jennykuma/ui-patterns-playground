@@ -1,32 +1,32 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-sage-green: #9caf88; /* badges, tinted backgrounds - dark text on top */
-	--color-pale-pink: #ffc0c0; /* small accents: sale badges, highlights — dark text */
+  --color-sage-green: #9caf88; /* badges, tinted backgrounds - dark text on top */
+  --color-pale-pink: #ffc0c0; /* small accents: sale badges, highlights — dark text */
 
-	--color-primary: #5a6e4a; /* filled buttons, white text (~5.6:1, passes AA) */
-	--color-primary-hover: #4a5d3a;
+  --color-primary: #5a6e4a; /* filled buttons, white text (~5.6:1, passes AA) */
+  --color-primary-hover: #4a5d3a;
 
-	--color-secondary: var(--color-primary); /* outline buttons: border + text */
-	--color-secondary-hover: #eef1ea; /* hover bg tint, ~primary at 10% on white */
+  --color-secondary: var(--color-primary); /* outline buttons: border + text */
+  --color-secondary-hover: #eef1ea; /* hover bg tint, ~primary at 10% on white */
 
-	--color-danger: #963d32; /* delete/remove, white text */
-	--color-danger-hover: #7d3229;
+  --color-danger: #963d32; /* delete/remove, white text */
+  --color-danger-hover: #7d3229;
 
-	--color-focus: var(--color-primary);
+  --color-focus: var(--color-primary);
 }
 
 @layer base {
-	*,
-	::after,
-	::before,
-	::backdrop,
-	::file-selector-button {
-		border-color: var(--color-gray-200, currentcolor);
-	}
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
 body {
-	margin: 0;
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
