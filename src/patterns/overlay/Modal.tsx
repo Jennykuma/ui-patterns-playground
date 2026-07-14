@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 export interface ModalProps {
   /** Heading displayed at the top of the modal */
@@ -52,38 +53,40 @@ const Modal = ({
       >
         Open modal
       </button>
-      {isOpen && (
-        <div
-          ref={backdropRef}
-          className="fixed inset-0 flex flex-col justify-center items-center bg-gray-600/50"
-          onClick={closeModal}
-        >
+      {isOpen &&
+        createPortal(
           <div
-            className="rounded-lg p-8 w-1/3 bg-white"
-            role="dialog"
-            onClick={(e) => e.stopPropagation()}
-            aria-modal="true"
-            aria-labelledby="modal-title"
+            ref={backdropRef}
+            className="fixed inset-0 flex flex-col justify-center items-center bg-gray-600/50"
+            onClick={closeModal}
           >
-            <span id="modal-title" className="text-2xl">
-              {title}
-            </span>
-            <p className="mt-5">{description}</p>
-            <div className="flex float-right">
-              <button
-                className={`
+            <div
+              className="rounded-lg p-8 w-1/3 bg-white"
+              role="dialog"
+              onClick={(e) => e.stopPropagation()}
+              aria-modal="true"
+              aria-labelledby="modal-title"
+            >
+              <span id="modal-title" className="text-2xl">
+                {title}
+              </span>
+              <p className="mt-5">{description}</p>
+              <div className="flex float-right">
+                <button
+                  className={`
                   border border-primary text-primary hover:bg-primary/10
                   transition-colors duration-200 font-semibold
                   text-sm mt-4 px-2 py-1.5 rounded-md cursor-pointer
                 `}
-                onClick={closeModal}
-              >
-                Close
-              </button>
+                  onClick={closeModal}
+                >
+                  Close
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </>
   );
 };
