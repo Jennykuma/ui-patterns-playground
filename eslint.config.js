@@ -8,14 +8,16 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import prettier from 'eslint-plugin-prettier';
+import tseslint from 'typescript-eslint';
 
 export default [
   // Ignore built output
   { ignores: ['dist/**'] },
   js.configs.recommended,
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
+      parser: tseslint.parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
@@ -28,7 +30,7 @@ export default [
       'react-hooks': reactHooks,
       'jsx-a11y': jsxA11y,
       import: importPlugin,
-      plugins: { prettier },
+      prettier,
     },
     settings: {
       react: { version: 'detect' },
